@@ -1,7 +1,9 @@
 import React from "react";
 
-const Login = () => {
-  return <div className="page login" />;
+export const Login = ({ ...props }) => {
+  return (
+    <div className="page login">
+      <pre>{JSON.stringify(props, null, 2)}</pre>
+    </div>
+  );
 };
-
-export default Login;
