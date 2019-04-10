@@ -40,7 +40,7 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 
 ## Application Setup
 
-- [ ] The application requires only npm install and npm start to install and launch.
+- [x] The application requires only npm install and npm start to install and launch.
 - [ ] A README is included with the project. The README includes a description and clear instructions for installing and launching the project.
 
 ## Login Flow
