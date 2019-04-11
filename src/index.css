@@ -174,8 +174,14 @@ header nav a:hover {
   color: #0099ff;
 }
 
+header nav a.active {
+  color: #0099ff;
+}
+
 header nav {
   display: flex;
+  height: 100%;
+  align-items: center;
 }
 
 header nav.menu {
@@ -259,4 +265,30 @@ ol.choices > li.vs {
   font-size: 1.3em;
   font-weight: 900;
   color: rgba(0, 0, 0, 0.3);
+}
+
+.button {
+  display: inline-block;
+  border-radius: 3px;
+  background: transparent;
+  border: 1px solid #333;
+  padding: 10px 15px 10px 15px;
+  margin: 0 10px;
+  color: #fff;
+  font-size: 15px;
+}
+
+.button:hover {
+  border-color: #0099ff;
+}
+
+.button.primary {
+  border: transparent;
+  background: #0099ff;
+  color: #fff;
+}
+
+.button.primary:hover {
+  color: #fff;
+  background: #0077bb;
 }
