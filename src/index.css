@@ -235,7 +235,7 @@ div.icon {
   align-self: center;
 }
 
-div.question {
+div.ask {
   width: 100%;
   max-width: 75vw;
   display: flex;
@@ -244,7 +244,7 @@ div.question {
   align-self: center;
 }
 
-div.question h1 {
+div.ask h1 {
   text-align: center;
 }
 
@@ -265,6 +265,10 @@ ol.choices > li.vs {
   font-size: 1.3em;
   font-weight: 900;
   color: rgba(0, 0, 0, 0.3);
+}
+
+.auto-center {
+  margin: 0 auto !important;
 }
 
 .button {

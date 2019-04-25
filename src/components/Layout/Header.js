@@ -9,15 +9,9 @@ export const Header = props => {
         <Link exact to="/">
           Dashboard
         </Link>
+
+        <Link to="/questions">Questions</Link>
         <Link to="/leaderboard">Leaderboard</Link>
-      </nav>
-      <nav className="action">
-        <Link to="/play" className="button primary">
-          Play
-        </Link>
-        <Link to="/add" className="button">
-          Add Question
-        </Link>
       </nav>
       <nav className="user">
         <Link to="/">Logout</Link>

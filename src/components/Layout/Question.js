@@ -2,7 +2,7 @@ import React from "react";
 
 export const Question = () => {
   return (
-    <div className="question">
+    <div className="ask">
       <h1>Would You Rather...</h1>
       <ol className="choices">
         <li>
