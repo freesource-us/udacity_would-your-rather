@@ -12,14 +12,18 @@ export const Questions = () => {
         exact
         path="/questions"
         render={() => (
-          <>
-            <button className="button primary auto-center" type="button">
-              Play
-            </button>
-            <Link to="/add" className="button">
-              Add Question
-            </Link>
-          </>
+          <Question
+            a={
+              <Link to="/questions/1" className="button primary">
+                Answer Question
+              </Link>
+            }
+            b={
+              <Link to="/add" className="button primary">
+                Add Question
+              </Link>
+            }
+          />
         )}
       />
     </article>

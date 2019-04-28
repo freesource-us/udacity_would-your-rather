@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink as Link } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as sessionActions from "../../actions/session";
 
-export const Header = props => {
-  console.log(props);
+const HeaderContainer = ({ user }) => {
   return (
     <header>
       <nav className="menu">
@@ -14,8 +16,30 @@ export const Header = props => {
         <Link to="/leaderboard">Leaderboard</Link>
       </nav>
       <nav className="user">
-        <Link to="/">Logout</Link>
+        {user && <span>Hi, {user}!</span>}
+        {user ? (
+          <Link to="/logout" activeClassName="hidden">
+            Logout
+          </Link>
+        ) : (
+          <Link to="/login" activeClassName="hidden">
+            Login
+          </Link>
+        )}
       </nav>
     </header>
   );
 };
+
+const mapStateToProps = state => ({
+  user: state.session.user
+});
+
+const mapDispatchProps = dispatch => ({
+  actions: bindActionCreators(sessionActions, dispatch)
+});
+
+export const Header = connect(
+  mapStateToProps,
+  mapDispatchProps
+)(HeaderContainer);

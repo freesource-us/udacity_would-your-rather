@@ -1,11 +1,43 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
+import { bindActionCreators } from "redux";
+import { connect } from "react-redux";
+import * as sessionActions from "../../actions/session";
 
-export const Login = ({ ...props }) => {
-  localStorage.setItem("session", "username");
-  // TODO: handle login
+const LoginContainer = ({ actions, user }) => {
+  if (user) {
+    return <Redirect to="/" />;
+  }
+
   return (
-    <article className="page login">
-      <pre>{JSON.stringify(props, null, 2)}</pre>
-    </article>
+    <select
+      id="pet-select"
+      defaultValue={user || ""}
+      onChange={({ target }) => {
+        actions.login(target.value);
+      }}
+    >
+      <option value="" disabled>
+        --Please choose an option--
+      </option>
+      <option value="dog">Dog</option>
+      <option value="cat">Cat</option>
+      <option value="hamster">Hamster</option>
+    </select>
   );
 };
+
+const mapStateToProps = state => {
+  return {
+    user: state.session.user
+  };
+};
+
+const mapDispatchProps = dispatch => ({
+  actions: bindActionCreators(sessionActions, dispatch)
+});
+
+export const Login = connect(
+  mapStateToProps,
+  mapDispatchProps
+)(LoginContainer);

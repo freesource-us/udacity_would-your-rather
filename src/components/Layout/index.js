@@ -1,2 +1,2 @@
-export * from "./Header";
-export * from "./Question";
+export { Header } from "./Header";
+export { Question } from "./Question";
