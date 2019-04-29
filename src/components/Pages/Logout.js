@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as sessionActions from "../../actions/session";
+import * as sessionActions from "../../actions/user";
 
 const LogoutContainer = ({ user, actions }) => {
   if (user) {

@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink as Link } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as sessionActions from "../../actions/session";
+import * as sessionActions from "../../actions/user";
 
 const HeaderContainer = ({ user }) => {
   return (
@@ -32,7 +32,7 @@ const HeaderContainer = ({ user }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.session.user
+  user: state.user.user
 });
 
 const mapDispatchProps = dispatch => ({

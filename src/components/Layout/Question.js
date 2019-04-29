@@ -1,13 +1,13 @@
 import React from "react";
 
-export const Question = ({ a, b }) => {
+export const Question = ({ optionOne, optionTwo }) => {
   return (
     <div className="ask">
       <h1>Would You Rather...</h1>
       <ol className="choices">
-        <li>{a}</li>
+        <li>{optionOne}</li>
         <li className="vs">VS</li>
-        <li>{b}</li>
+        <li>{optionTwo}</li>
       </ol>
     </div>
   );

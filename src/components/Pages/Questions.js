@@ -13,12 +13,12 @@ export const Questions = () => {
         path="/questions"
         render={() => (
           <Question
-            a={
+            optionOne={
               <Link to="/questions/1" className="button primary">
                 Answer Question
               </Link>
             }
-            b={
+            optionTwo={
               <Link to="/add" className="button primary">
                 Add Question
               </Link>

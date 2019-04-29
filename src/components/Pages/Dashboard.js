@@ -6,7 +6,7 @@ export const Dashboard = props => {
     <article className="page dashboard">
       <div className="icon" />
       <hr />
-      <Question a={<p>Start</p>} b={<p>Finish</p>} />
+      <Question optionOne={<p>Start</p>} optionTwo={<p>Finish</p>} />
     </article>
   );
 };

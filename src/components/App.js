@@ -19,7 +19,7 @@ const AppContainer = ({ me, actions }) => {
 
   useEffect(() => {
     me ? initApp() : actions.me();
-  }, undefined);
+  }, []);
 
   return (
     <div className="app">
@@ -32,7 +32,7 @@ const AppContainer = ({ me, actions }) => {
 };
 
 const mapStateToProps = state => ({
-  me: state.session.user
+  me: state.user
 });
 
 const mapDispatchProps = dispatch => ({

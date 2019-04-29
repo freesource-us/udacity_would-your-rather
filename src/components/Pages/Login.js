@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Redirect } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as sessionActions from "../../actions/session";
+import * as actions from "../../actions";
 
-const LoginContainer = ({ actions, user }) => {
+const LoginContainer = ({ actions, user, users }) => {
   if (user) {
     return <Redirect to="/" />;
   }
+
+  useEffect(() => {
+    actions.getUsers();
+  }, []);
 
   return (
     <select
@@ -20,21 +24,21 @@ const LoginContainer = ({ actions, user }) => {
       <option value="" disabled>
         --Please choose an option--
       </option>
-      <option value="dog">Dog</option>
-      <option value="cat">Cat</option>
-      <option value="hamster">Hamster</option>
+      {users &&
+        Object.keys(users).map(user => <option value={user}>{user}</option>)}
     </select>
   );
 };
 
 const mapStateToProps = state => {
   return {
-    user: state.session.user
+    user: state.user,
+    users: state.users
   };
 };
 
 const mapDispatchProps = dispatch => ({
-  actions: bindActionCreators(sessionActions, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 });
 
 export const Login = connect(
