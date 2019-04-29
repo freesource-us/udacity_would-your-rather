@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Router from "./Router";
 import { Header } from "./Layout";
 import { BrowserRouter } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as sessionActions from "../actions/session";
+import * as actions from "../actions";
 
 const AppContainer = ({ me, actions }) => {
+  /*
   if (me !== null && !me) {
     actions.me();
   }
+  */
+  const initApp = () => {
+    actions.getUsers();
+    actions.getQuestions();
+  };
+
+  useEffect(() => {
+    me ? initApp() : actions.me();
+  }, undefined);
 
   return (
     <div className="app">
@@ -26,7 +36,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchProps = dispatch => ({
-  actions: bindActionCreators(sessionActions, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 });
 
 export const App = connect(
