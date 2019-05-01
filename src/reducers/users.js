@@ -4,16 +4,18 @@ export const users = (state = {}, action) => {
   switch (action.type) {
     case GET_USER: {
       const { id, ...user } = action.user;
+
       return {
         ...state,
         [id]: user
       };
     }
-    case GET_USERS:
+    case GET_USERS: {
       return {
         ...state,
         ...action.users
       };
+    }
     default:
       return state;
   }

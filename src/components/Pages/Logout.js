@@ -12,7 +12,7 @@ const LogoutContainer = ({ user, actions }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.session.user
+  user: state.user
 });
 
 const mapDispatchProps = dispatch => ({

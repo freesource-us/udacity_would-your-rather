@@ -6,7 +6,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const AppContainer = ({ me, actions }) => {
+const AppContainer = ({ user, actions }) => {
   /*
   if (me !== null && !me) {
     actions.me();
@@ -18,21 +18,21 @@ const AppContainer = ({ me, actions }) => {
   };
 
   useEffect(() => {
-    me ? initApp() : actions.me();
+    user ? initApp() : actions.me();
   }, []);
 
   return (
     <div className="app">
       <BrowserRouter>
         <Header />
-        <Router me={me} />
+        <Router me={user} />
       </BrowserRouter>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  me: state.user
+  user: state.user
 });
 
 const mapDispatchProps = dispatch => ({

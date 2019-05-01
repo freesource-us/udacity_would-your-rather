@@ -32,7 +32,7 @@ const HeaderContainer = ({ user }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.user.user
+  user: state.user
 });
 
 const mapDispatchProps = dispatch => ({

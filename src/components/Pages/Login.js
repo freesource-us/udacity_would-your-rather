@@ -14,19 +14,21 @@ const LoginContainer = ({ actions, user, users }) => {
   }, []);
 
   return (
-    <select
-      id="pet-select"
-      defaultValue={user || ""}
-      onChange={({ target }) => {
-        actions.login(target.value);
-      }}
-    >
-      <option value="" disabled>
-        --Please choose an option--
-      </option>
-      {users &&
-        Object.keys(users).map(user => <option value={user}>{user}</option>)}
-    </select>
+    <article className="page login center">
+      <h1>Log In</h1>
+      <select
+        id="pet-select"
+        defaultValue={user || ""}
+        onChange={({ target }) => {
+          actions.login(target.value);
+        }}
+      >
+        <option value="" disabled>
+          --Please choose an option--
+        </option>
+        {users && Object.keys(users).map(user => <option value={user}>{user}</option>)}
+      </select>
+    </article>
   );
 };
 
