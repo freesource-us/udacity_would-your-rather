@@ -26,7 +26,12 @@ const LoginContainer = ({ actions, user, users }) => {
         <option value="" disabled>
           --Please choose an option--
         </option>
-        {users && Object.keys(users).map(user => <option value={user}>{user}</option>)}
+        {users &&
+          Object.values(users).map(user => (
+            <option value={user} key={user.id}>
+              {user.name}
+            </option>
+          ))}
       </select>
     </article>
   );

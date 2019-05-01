@@ -1,15 +1,21 @@
 import React from "react";
 import { Icon } from "../UI/Icon";
+import { Link } from "react-router-dom";
 
 export const Question = ({ icon, optionOne, optionTwo, ...props }) => {
-  const {
-    match: { params }
-  } = props;
+  const { match: { params } = { params: {} } } = props;
 
-  if (params.id) {
-    console.log("TODO: We got a concrete question, display here", params.id);
-  } else {
-    console.log("TODO: Make a generic one!");
+  if (!params.id) {
+    optionOne = (
+      <Link to="/questions/1" className="button primary">
+        Answer Question
+      </Link>
+    );
+    optionTwo = (
+      <Link to="/add" className="button primary">
+        Create Question
+      </Link>
+    );
   }
 
   return (

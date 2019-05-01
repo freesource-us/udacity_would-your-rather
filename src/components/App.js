@@ -7,11 +7,6 @@ import { connect } from "react-redux";
 import * as actions from "../actions";
 
 const AppContainer = ({ user, actions }) => {
-  /*
-  if (me !== null && !me) {
-    actions.me();
-  }
-  */
   const initApp = () => {
     actions.getUsers();
     actions.getQuestions();
@@ -19,7 +14,7 @@ const AppContainer = ({ user, actions }) => {
 
   useEffect(() => {
     user ? initApp() : actions.me();
-  }, []);
+  }, [user]);
 
   return (
     <div className="app">

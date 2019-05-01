@@ -1,30 +1,14 @@
 import React from "react";
 import { Question } from "../Layout/Question";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as actions from "../../actions";
 
-export const Questions = ({ user, users }) => {
+const QuestionsContainer = () => {
   return (
     <article className="page question">
-      <Route path="/questions/:id" component={Question} />
-      <Route
-        exact
-        path="/questions"
-        render={props => (
-          <Question
-            {...props}
-            optionOne={
-              <Link to="/questions/1" className="button primary">
-                Answer Question
-              </Link>
-            }
-            optionTwo={
-              <Link to="/add" className="button primary">
-                Create Question
-              </Link>
-            }
-          />
-        )}
-      />
+      <Route path="/questions/:id?" component={Question} />
     </article>
   );
 };
@@ -40,7 +24,7 @@ const mapDispatchProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)
 });
 
-export const Login = connect(
+export const Questions = connect(
   mapStateToProps,
   mapDispatchProps
-)(LoginContainer);
+)(QuestionsContainer);

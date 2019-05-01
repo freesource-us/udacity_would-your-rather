@@ -1,7 +1,7 @@
 import React from "react";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import * as sessionActions from "../../actions/user";
+import * as actions from "../../actions";
 
 const LogoutContainer = ({ user, actions }) => {
   if (user) {
@@ -16,7 +16,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchProps = dispatch => ({
-  actions: bindActionCreators(sessionActions, dispatch)
+  actions: bindActionCreators(actions, dispatch)
 });
 
 export const Logout = connect(
