@@ -16,7 +16,7 @@ const HeaderContainer = ({ user }) => {
         <Link to="/leaderboard">Leaderboard</Link>
       </nav>
       <nav className="user">
-        {user && <span>Hi, {user}!</span>}
+        {user && <span>Hi, {user.name}!</span>}
         {user ? (
           <Link to="/logout" activeClassName="hidden">
             Logout

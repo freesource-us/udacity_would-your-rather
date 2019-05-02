@@ -46,7 +46,7 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 ## Login Flow
 
 - [x] There should be a way for the user to impersonate/ log in as an existing user. (This could be as simple as having a login box that appears at the root of the application. The user could then select a name from the list of existing users.)
-- [ ] The application works correctly regardless of which user is selected.
+- [x] The application works correctly regardless of which user is selected.
 - [x] The application allows the user to log out and log back in. The user should be logged in to submit new polling questions, vote, and view the leaderboard.
 - [x] Once the user logs in, the home page is shown.
 - [x] Whenever the user types something in the address bar, the user is asked to log in before the requested page is shown.
@@ -56,8 +56,8 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 - [ ] The answered and unanswered polls are both available at the root.
 - [ ] The user can alternate between viewing answered and unanswered polls.
 - [ ] The unanswered questions are shown by default.
-- [ ] The name of the logged in user is visible on the page.
-- [ ] The user can navigate to the leaderboard.
+- [x] The name of the logged in user is visible on the page.
+- [x] The user can navigate to the leaderboard.
 - [ ] The user can navigate to the form that allows the user to create a new poll.
 
 ---
@@ -75,13 +75,13 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 
 When a poll is clicked on the home page, the following is shown:
 
-- [ ] the text “Would You Rather”;
-- [ ] the picture of the user who posted the polling question; and
-- [ ] the two options.
+- [x] the text “Would You Rather”;
+- [x] the picture of the user who posted the polling question; and
+- [x] the two options.
 
 For answered polls, each of the two options contains the following:
 
-- [ ] the text of the option;
+- [x] the text of the option;
 - [ ] the number of people who voted for that option;
 - [ ] the percentage of people who voted for that option.
 

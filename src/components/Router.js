@@ -7,7 +7,7 @@ const Router = ({ me }) => {
     <Switch>
       <Route path="/login" component={Login} />
       <Route path="/logout" component={Logout} />
-      <Route exact path="/" component={me ? Dashboard : Unauthorized} />
+      <Route exact path="/(answered|unanswered)?" component={me ? Dashboard : Unauthorized} />
       <Route path="/questions" component={me ? Questions : Unauthorized} />
       <Route path="/leaderboard" component={me ? Leaderboard : Unauthorized} />
       <Route path="/add" render={(...props) => <pre>{JSON.stringify(props, null, 2)}</pre>} />

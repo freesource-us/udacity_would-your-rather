@@ -223,7 +223,7 @@ h1,
 h2,
 h3,
 .vs {
-  font-family: "Slabo 27px", serif;
+  font-family: "Slabo 27px", serif !important;
 }
 
 .button,
@@ -241,6 +241,8 @@ div.icon {
   margin: 2vw;
   background: #aaa;
   align-self: center;
+  background-position: center center;
+  background-size: 100% 100%;
 }
 
 div.ask {
@@ -268,6 +270,12 @@ ol.choices > li {
   padding: 3vw 0;
   width: 40%;
   display: flex;
+  font-family: "Open Sans", sans-serif;
+  text-align: center;
+  line-height: 1.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 ol.choices > li:first-child {
@@ -282,6 +290,7 @@ ol.choices > li.vs {
   justify-content: center;
   font-size: 1.3em;
   font-weight: 900;
+  margin-top: 10px;
   width: 20%;
   color: rgba(0, 0, 0, 0.3);
 }
@@ -305,23 +314,35 @@ ol.choices > li.vs {
   text-decoration: none;
   min-width: 120px;
   text-align: center;
+  margin: 10px 0 0 0;
 }
 
-.button:hover {
+.button:hover:not([disabled]) {
   border-color: #0099ff;
+  cursor: pointer;
 }
 
-.button.primary {
+.button.primary:not([disabled]) {
   border: transparent;
   background: #0099ff;
   color: #fff;
 }
 
-.button.primary:hover {
+.button.primary:hover:not([disabled]) {
   color: #fff;
   background: #0077bb;
 }
 
-.hidden {
+.button.answered {
+  color: #fff;
+  background: #009911 !important;
+}
+
+.button[disabled] {
+  background: #555;
+  color: #fff;
+}
+
+:not(disabled) .hidden {
   display: none;
 }

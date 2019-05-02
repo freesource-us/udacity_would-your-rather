@@ -3,7 +3,7 @@ export const LOGOUT = "LOGOUT";
 export const ME = "ME";
 
 export const me = () => dispatch => {
-  const user = localStorage.getItem("session");
+  const user = JSON.parse(localStorage.getItem("user"));
 
   dispatch({
     type: ME,
@@ -12,7 +12,7 @@ export const me = () => dispatch => {
 };
 
 export const login = user => dispatch => {
-  localStorage.setItem("session", user);
+  localStorage.setItem("user", JSON.stringify(user));
 
   dispatch({
     type: LOGIN,
@@ -21,7 +21,7 @@ export const login = user => dispatch => {
 };
 
 export const logout = () => dispatch => {
-  localStorage.removeItem("session");
+  localStorage.removeItem("user");
 
   dispatch({
     type: LOGOUT

@@ -20,7 +20,7 @@ const LoginContainer = ({ actions, user, users }) => {
         id="pet-select"
         defaultValue={user || ""}
         onChange={({ target }) => {
-          actions.login(target.value);
+          actions.login(users[target.value]);
         }}
       >
         <option value="" disabled>
@@ -28,7 +28,7 @@ const LoginContainer = ({ actions, user, users }) => {
         </option>
         {users &&
           Object.values(users).map(user => (
-            <option value={user} key={user.id}>
+            <option key={user.id} value={user.id}>
               {user.name}
             </option>
           ))}
