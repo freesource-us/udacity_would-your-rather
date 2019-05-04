@@ -5,7 +5,8 @@ import { bindActionCreators } from "redux";
 import * as actions from "../../actions";
 
 const DashboardContainer = props => {
-  const { match: { params } = { params }, user, questions } = props;
+  const { match: { params } = { params: undefined }, user, questions } = props;
+
   const state = Object.values(params);
 
   //const otherQuestions = Object.values(questions).filter(question => !user.questions.includes(question.id));

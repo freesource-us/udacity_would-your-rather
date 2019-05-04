@@ -58,7 +58,7 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 - [ ] The unanswered questions are shown by default.
 - [x] The name of the logged in user is visible on the page.
 - [x] The user can navigate to the leaderboard.
-- [ ] The user can navigate to the form that allows the user to create a new poll.
+- [x] The user can navigate to the form that allows the user to create a new poll.
 
 ---
 
@@ -68,9 +68,9 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 
 ---
 
-- [ ] The details of the poll are available at questions/:question_id.
-- [ ] The option selected by the logged in user should be clearly marked.
-- [ ] The option selected by the logged in user should be clearly marked.When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
+- [x] The details of the poll are available at questions/:question_id.
+- [x] The option selected by the logged in user should be clearly marked.
+- [x] The option selected by the logged in user should be clearly marked.When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
 - [ ] The option selected by the logged in user should be clearly marked.The application asks the user to sign in and shows a 404 page if that poll does not exist. (In other words, if a user creates a poll and then the same or another user tries to access that poll by its url, the user should be asked to sign in and then be shown a 404 page. Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.)
 
 When a poll is clicked on the home page, the following is shown:
@@ -82,8 +82,8 @@ When a poll is clicked on the home page, the following is shown:
 For answered polls, each of the two options contains the following:
 
 - [x] the text of the option;
-- [ ] the number of people who voted for that option;
-- [ ] the percentage of people who voted for that option.
+- [x] the number of people who voted for that option;
+- [x] the percentage of people who voted for that option.
 
 ---
 
@@ -101,7 +101,7 @@ For answered polls, each of the two options contains the following:
 
 ---
 
-- [ ] The Leaderboard is available at/leaderboard.
+- [x] The Leaderboard is available at/leaderboard.
 - [ ] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
 Each entry on the leaderboard contains the following:
@@ -113,7 +113,7 @@ Each entry on the leaderboard contains the following:
 
 ---
 
-- [ ] The app contains a navigation bar that is visible on all of the pages.
+- [x] The app contains a navigation bar that is visible on all of the pages.
 - [ ] The user can navigate between the page for creating new polls, and the leaderboard page, and the home page without typing the address into the address bar.
 
 ---
@@ -128,18 +128,18 @@ Each entry on the leaderboard contains the following:
 ## Architectur
 
 - [ ] The store is the application’s source of truth.
-- [ ] Components read the necessary state from the store; they do not have their own versions of the same state.
-- [ ] There are no direct API calls in the components' lifecycle methods.
+- [x] Components read the necessary state from the store; they do not have their own versions of the same state.
+- [x] There are no direct API calls in the components' lifecycle methods.
 
 ---
 
-- [ ] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
+- [x] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
 - [ ] Form inputs and controlled components may have some state handled by the component.
 
 ---
 
-- [ ] Updates are triggered by dispatching action creators to reducers.
-- [ ] Reducers and actions are written properly and correctly return updated state to the store.
+- [x] Updates are triggered by dispatching action creators to reducers.
+- [x] Reducers and actions are written properly and correctly return updated state to the store.
 
 ---
 

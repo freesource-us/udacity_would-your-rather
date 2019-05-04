@@ -14,6 +14,9 @@ const HeaderContainer = ({ user }) => {
 
         <Link to="/questions">Questions</Link>
         <Link to="/leaderboard">Leaderboard</Link>
+        <Link to="/add" className="button primary">
+          +
+        </Link>
       </nav>
       <nav className="user">
         {user && <span>Hi, {user.name}!</span>}

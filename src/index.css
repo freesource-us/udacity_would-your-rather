@@ -258,15 +258,15 @@ div.ask h1 {
   text-align: center;
 }
 
-ol.choices {
+.choices {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: flex-end;
   min-width: 250px;
 }
 
-ol.choices > li {
+.choices > li {
   padding: 3vw 0;
   width: 40%;
   display: flex;
@@ -278,15 +278,15 @@ ol.choices > li {
   align-items: center;
 }
 
-ol.choices > li:first-child {
+.choices > li:first-child {
   justify-content: flex-end;
 }
 
-ol.choices > li:last-child {
+.choices > li:last-child {
   justify-content: flex-start;
 }
 
-ol.choices > li.vs {
+.choices > li.vs {
   justify-content: center;
   font-size: 1.3em;
   font-weight: 900;
@@ -312,8 +312,11 @@ ol.choices > li.vs {
   min-height: 21px;
   line-height: normal;
   text-decoration: none;
-  min-width: 120px;
   text-align: center;
+}
+
+.page .button {
+  min-width: 120px;
   margin: 10px 0 0 0;
 }
 
