@@ -1,32 +1,41 @@
 import {
-  GET_QUESTION,
-  GET_QUESTIONS,
-  SAVE_QUESTION,
-  SAVE_QUESTION_ANSWER
+  RECEIVE_QUESTION,
+  RECEIVE_QUESTIONS,
+  RECEIVE_SAVE_QUESTION,
+  RECEIVE_SAVE_QUESTION_ANSWER
 } from "../actions/questions";
 
 export const questions = (state = {}, action) => {
   switch (action.type) {
-    case GET_QUESTION:
+    case RECEIVE_QUESTION:
       return {
         ...state,
         [action.question.id]: action.question
       };
-    case GET_QUESTIONS:
+    case RECEIVE_QUESTIONS:
       return {
         ...state,
         ...action.questions
       };
-    case SAVE_QUESTION:
+    case RECEIVE_SAVE_QUESTION:
       return {
         ...state,
         [action.question.id]: action.question
       };
-    case SAVE_QUESTION_ANSWER:
+    case RECEIVE_SAVE_QUESTION_ANSWER: {
+      const { qid, answer, authedUser } = action.answer;
+
       return {
         ...state,
-        answer: action.answer
+        [qid]: {
+          ...state[qid],
+          [answer]: {
+            ...state[qid][answer],
+            votes: state[qid][answer].votes.concat([authedUser])
+          }
+        }
       };
+    }
     default:
       return state;
   }

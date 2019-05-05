@@ -5,26 +5,46 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../../actions";
 
-export const QuestionsContainer = ({ user, users, questions, ...props }) => {
+export const QuestionsContainer = ({
+  user,
+  users,
+  questions,
+  actions,
+  ...props
+}) => {
   const { match: { params } = { params: {} } } = props;
   const { [params.id]: question } = questions;
 
-  if (!question) return <NotFound />;
+  if (!question) {
+    return <NotFound />;
+  }
 
   const { [question.author]: author } = users;
-  const answer = user.answers[question.id];
-  const q = {
-    ...question,
-    [answer]: {
-      ...question[answer],
-      answered: true
-    },
-    totalVotes: question.optionOne.votes.length + question.optionTwo.votes.length,
-    answered: !!answer,
-    author
+  const answer = users[user].answers[question.id];
+
+  const handleVote = answer => e => {
+    e.preventDefault();
+
+    actions.saveQuestionAnswer({
+      answer,
+      authedUser: user,
+      qid: question.id
+    });
   };
 
-  return <article className="page question">{q ? <Question question={q} /> : <NotFound />}</article>;
+  return (
+    <article className="page question">
+      <Question
+        onVote={handleVote}
+        author={author}
+        question={question}
+        answer={{
+          authedUser: user,
+          answer
+        }}
+      />
+    </article>
+  );
 };
 
 const mapStateToProps = state => {

@@ -4,11 +4,16 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as action from "../../actions";
 
-const HeaderContainer = ({ user }) => {
+const HeaderContainer = ({ user, users }) => {
   return (
     <header>
       <nav className="menu">
-        <Link exact to="/">
+        <Link
+          to="/"
+          isActive={(match, location) =>
+            location.pathname.match(/(\/|\/answered)$/g)
+          }
+        >
           Dashboard
         </Link>
 
@@ -19,7 +24,7 @@ const HeaderContainer = ({ user }) => {
         </Link>
       </nav>
       <nav className="user">
-        {user && <span>Hi, {user.name}!</span>}
+        {user && <span>Hi, {users[user] && users[user].name}!</span>}
         {user ? (
           <Link to="/logout" activeClassName="hidden">
             Logout
@@ -35,7 +40,8 @@ const HeaderContainer = ({ user }) => {
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  users: state.users
 });
 
 const mapDispatchProps = dispatch => ({

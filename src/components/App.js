@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import Router from "./Router";
 import { Header } from "./Layout";
+import { Loader } from "./UI";
 import { BrowserRouter } from "react-router-dom";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 
-const AppContainer = ({ user, actions }) => {
+const AppContainer = ({ user, loading, actions }) => {
   const initApp = () => {
     actions.getUsers();
     actions.getQuestions();
@@ -20,14 +21,15 @@ const AppContainer = ({ user, actions }) => {
     <div className="app">
       <BrowserRouter>
         <Header />
-        <Router me={user} />
+        {loading ? <Loader /> : <Router me={user} />}
       </BrowserRouter>
     </div>
   );
 };
 
 const mapStateToProps = state => ({
-  user: state.user
+  user: state.user,
+  loading: state.loading
 });
 
 const mapDispatchProps = dispatch => ({

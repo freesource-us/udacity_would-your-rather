@@ -1,0 +1,47 @@
+import {
+  REQUEST_LOGIN,
+  REQUEST_LOGOUT,
+  REQUEST_ME,
+  REQUEST_QUESTION,
+  REQUEST_QUESTIONS,
+  REQUEST_SAVE_QUESTION,
+  REQUEST_SAVE_QUESTION_ANSWER,
+  REQUEST_USER,
+  REQUEST_USERS,
+  RECEIVE_LOGIN,
+  RECEIVE_LOGOUT,
+  RECEIVE_ME,
+  RECEIVE_QUESTION,
+  RECEIVE_QUESTIONS,
+  RECEIVE_SAVE_QUESTION,
+  RECEIVE_SAVE_QUESTION_ANSWER,
+  RECEIVE_USER,
+  RECEIVE_USERS
+} from "../actions";
+
+export const loading = (state = false, action) => {
+  switch (action.type) {
+    case REQUEST_LOGIN:
+    case REQUEST_LOGOUT:
+    case REQUEST_ME:
+    case REQUEST_QUESTION:
+    case REQUEST_QUESTIONS:
+    case REQUEST_SAVE_QUESTION:
+    case REQUEST_SAVE_QUESTION_ANSWER:
+    case REQUEST_USER:
+    case REQUEST_USERS:
+      return true;
+    case RECEIVE_LOGIN:
+    case RECEIVE_LOGOUT:
+    case RECEIVE_ME:
+    case RECEIVE_QUESTION:
+    case RECEIVE_QUESTIONS:
+    case RECEIVE_SAVE_QUESTION:
+    case RECEIVE_SAVE_QUESTION_ANSWER:
+    case RECEIVE_USER:
+    case RECEIVE_USERS:
+      return false;
+    default:
+      return state;
+  }
+};

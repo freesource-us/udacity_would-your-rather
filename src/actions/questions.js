@@ -1,41 +1,54 @@
 import { _getQuestions, _saveQuestion, _saveQuestionAnswer } from "./../utils";
 
-export const GET_QUESTIONS = "GET_QUESTIONS";
-export const GET_QUESTION = "GET_QUESTION";
-export const SAVE_QUESTION = "SAVE_QUESTION";
-export const SAVE_QUESTION_ANSWER = "SAVE_QUESTION_ANSWER";
+export const REQUEST_QUESTION = "REQUEST_QUESTION";
+export const REQUEST_QUESTIONS = "REQUEST_QUESTIONS";
+export const REQUEST_SAVE_QUESTION = "REQUEST_SAVE_QUESTION";
+export const REQUEST_SAVE_QUESTION_ANSWER = "REQUEST_SAVE_QUESTION_ANSWER";
+export const RECEIVE_QUESTION = "RECEIVE_QUESTION";
+export const RECEIVE_QUESTIONS = "RECEIVE_QUESTIONS";
+export const RECEIVE_SAVE_QUESTION = "RECEIVE_SAVE_QUESTION";
+export const RECEIVE_SAVE_QUESTION_ANSWER = "RECEIVE_SAVE_QUESTION_ANSWER";
 
 export const getQuestion = id => async dispatch => {
-  const questions = await _getQuestions();
-
   dispatch({
-    type: GET_QUESTION,
+    type: REQUEST_QUESTION
+  });
+  const questions = await _getQuestions();
+  dispatch({
+    type: RECEIVE_QUESTION,
     question: Object.values(questions).find(question => question.id === id)
   });
 };
 
 export const getQuestions = () => async dispatch => {
-  const questions = await _getQuestions();
-
   dispatch({
-    type: GET_QUESTIONS,
+    type: REQUEST_QUESTIONS
+  });
+  const questions = await _getQuestions();
+  dispatch({
+    type: RECEIVE_QUESTIONS,
     questions
   });
 };
 
 export const saveQuestion = question => async dispatch => {
-  const savedQuestion = await _saveQuestion(question);
-
   dispatch({
-    type: SAVE_QUESTION,
+    type: REQUEST_SAVE_QUESTION
+  });
+  const savedQuestion = await _saveQuestion(question);
+  dispatch({
+    type: RECEIVE_SAVE_QUESTION,
     question: savedQuestion
   });
 };
 
 export const saveQuestionAnswer = answer => dispatch => {
+  dispatch({
+    type: REQUEST_SAVE_QUESTION_ANSWER
+  });
   _saveQuestionAnswer(answer).then(() => {
     dispatch({
-      type: SAVE_QUESTION_ANSWER,
+      type: RECEIVE_SAVE_QUESTION_ANSWER,
       answer
     });
   });

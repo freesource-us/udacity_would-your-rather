@@ -1,12 +1,12 @@
-import { LOGIN, LOGOUT, ME } from "../actions/user";
+import { RECEIVE_LOGIN, RECEIVE_LOGOUT, RECEIVE_ME } from "../actions";
 
 export const user = (state = null, action) => {
   switch (action.type) {
-    case ME:
+    case RECEIVE_ME:
       return action.user;
-    case LOGIN:
+    case RECEIVE_LOGIN:
       return action.user;
-    case LOGOUT:
+    case RECEIVE_LOGOUT:
       return null;
     default:
       return state;

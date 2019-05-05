@@ -10,17 +10,17 @@ const LoginContainer = ({ actions, user, users }) => {
   }
 
   useEffect(() => {
-    actions.getUsers();
-  }, []);
+    Object.keys(users).length === 0 && actions.getUsers();
+  }, [users]);
 
   return (
     <article className="page login center">
       <h1>Log In</h1>
       <select
-        id="pet-select"
+        id="user-select"
         defaultValue={user || ""}
         onChange={({ target }) => {
-          actions.login(users[target.value]);
+          actions.login(target.value);
         }}
       >
         <option value="" disabled>

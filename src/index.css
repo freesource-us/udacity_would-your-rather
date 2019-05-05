@@ -138,14 +138,14 @@ body,
 }
 
 /* Base Layout */
-article.page {
+.page {
   display: flex;
   flex-direction: column;
   justify-content: center;
   min-height: calc(100% - 80px);
 }
 
-article.page hr {
+.page hr {
   min-width: 150px;
   background: transparent;
   border: 0;
@@ -154,7 +154,7 @@ article.page hr {
   align-self: center;
 }
 
-article.page.center {
+.page.center {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,6 +169,8 @@ header {
   justify-content: space-between;
 }
 
+.linkbox a,
+.linkbox a:visited,
 header nav a,
 header nav a:visited {
   font-family: "Open Sans", sans-serif;
@@ -176,10 +178,9 @@ header nav a:visited {
   text-decoration: none;
 }
 
-header nav a:hover {
-  color: #0099ff;
-}
-
+.linkbox a:hover,
+.linkbox a.active,
+header nav a:hover,
 header nav a.active {
   color: #0099ff;
 }
@@ -190,12 +191,22 @@ header nav {
   align-items: center;
 }
 
+.linkbox,
 header nav.menu {
   width: 32%;
   justify-content: flex-start;
   padding-left: 1em;
 }
 
+.linkbox {
+  align-self: flex-end;
+  justify-content: flex-end;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+}
+
+.linkbox a,
 header nav.menu a {
   margin-right: 1em;
 }
@@ -320,6 +331,13 @@ div.ask h1 {
   margin: 10px 0 0 0;
 }
 
+.loader svg {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  display: inline-block;
+}
+
 .button:hover:not([disabled]) {
   border-color: #0099ff;
   cursor: pointer;
@@ -348,4 +366,57 @@ div.ask h1 {
 
 :not(disabled) .hidden {
   display: none;
+}
+
+table {
+  margin: 5vw;
+  /* DEBUG border: 2px solid rgba(0, 128, 255, 0.5); */
+  font-family: "Slabo 27px", serif !important;
+  font-size: 21px;
+
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+thead {
+  color: #0099ff;
+}
+
+tbody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+tr {
+  display: flex;
+  width: 100%;
+}
+
+td {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+textarea {
+  border: 1px solid #eee;
+  border-radius: 2px;
+  padding: 10px;
+  font-size: 16px;
+  margin: 20px 20px 0;
+  resize: none;
+  height: 60px;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.last-question {
+  text-align: center;
+  font-size: 16px;
+  font-family: "Slabo 27px", serif !important;
 }

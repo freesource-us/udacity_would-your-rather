@@ -102,14 +102,14 @@ For answered polls, each of the two options contains the following:
 ---
 
 - [x] The Leaderboard is available at/leaderboard.
-- [ ] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
+- [x] Users are ordered in descending order based on the sum of the number of questions they’ve answered and the number of questions they’ve asked.
 
 Each entry on the leaderboard contains the following:
 
-- [ ] the user’s name;
-- [ ] the user’s picture;
-- [ ] the number of questions the user asked; and
-- [ ] the number of questions the user answered.
+- [x] the user’s name;
+- [x] the user’s picture;
+- [x] the number of questions the user asked; and
+- [x] the number of questions the user answered.
 
 ---
 
@@ -118,7 +118,7 @@ Each entry on the leaderboard contains the following:
 
 ---
 
-- [ ] The data that’s initially displayed is populated correctly from the backend.
+- [x] The data that’s initially displayed is populated correctly from the backend.
 - [ ] Each user’s answer and each new poll is correctly recorded on the backend.
 
 ---

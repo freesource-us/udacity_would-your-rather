@@ -1,8 +1,12 @@
-import { GET_USER, GET_USERS } from "../actions/users";
+import {
+  RECEIVE_USER,
+  RECEIVE_USERS,
+  RECEIVE_SAVE_QUESTION_ANSWER
+} from "../actions";
 
 export const users = (state = {}, action) => {
   switch (action.type) {
-    case GET_USER: {
+    case RECEIVE_USER: {
       const { id, ...user } = action.user;
 
       return {
@@ -10,10 +14,24 @@ export const users = (state = {}, action) => {
         [id]: user
       };
     }
-    case GET_USERS: {
+    case RECEIVE_USERS: {
       return {
         ...state,
         ...action.users
+      };
+    }
+    case RECEIVE_SAVE_QUESTION_ANSWER: {
+      const { qid, answer, authedUser } = action.answer;
+
+      return {
+        ...state,
+        [authedUser]: {
+          ...state[authedUser],
+          answers: {
+            ...state[authedUser].answers,
+            [qid]: answer
+          }
+        }
       };
     }
     default:

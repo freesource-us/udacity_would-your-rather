@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Icon } from "../UI/Icon";
 
 const VoteButton = props => (
@@ -8,36 +8,76 @@ const VoteButton = props => (
   </button>
 );
 
-export const Question = ({ question, children, icon }) => {
-  const q = question;
+export const Question = ({
+  onVote,
+  author,
+  question,
+  answer,
+  children,
+  icon
+}) => {
+  const [answerOptionOne, setAnswerOptionOne] = useState(
+    answer && answer.answer === "optionOne"
+  );
+  const [answerOptionTwo, setAnswerOptionTwo] = useState(
+    answer && answer.answer === "optionTwo"
+  );
+
+  const didAnswer = answerOptionOne || answerOptionTwo;
+
+  const total = question
+    ? question.optionOne.votes.length + question.optionTwo.votes.length
+    : 0;
+
+  console.log(
+    "Question changed:",
+    answerOptionOne,
+    answerOptionTwo,
+    question,
+    answer
+  );
 
   return (
     <>
-      <Icon icon={q ? q.author.avatarURL : icon} />
+      <Icon icon={author ? author.avatarURL : icon} />
       <hr />
       <div className="ask">
         <h1>Would You Rather...</h1>
         {children || (
           <ol className="choices">
             <li>
-              {q.optionOne.text}
-              {q.answered ? (
-                <button className={`${q.optionOne.answered && "answered"} button primary`} disabled>
-                  {q.optionOne.votes.length} / {q.totalVotes} ( {(q.optionOne.votes.length / q.totalVotes) * 100} %)
+              {question.optionOne.text}
+              {didAnswer ? (
+                <button
+                  className={`${answerOptionOne && "answered"} button primary`}
+                  disabled
+                >
+                  {question.optionOne.votes.length} / {total} ({" "}
+                  {(question.optionOne.votes.length / total) * 100} %)
                 </button>
               ) : (
-                <VoteButton className={`button primary`} />
+                <VoteButton
+                  className={`button primary`}
+                  onClick={onVote("optionOne")}
+                />
               )}
             </li>
             <li className="vs">VS</li>
             <li>
-              {q.optionTwo.text}
-              {q.answered ? (
-                <button className={`${q.optionTwo.answered && "answered"} button primary`} disabled>
-                  {q.optionTwo.votes.length} / {q.totalVotes} ( {(q.optionTwo.votes.length / q.totalVotes) * 100} %)
+              {question.optionTwo.text}
+              {didAnswer ? (
+                <button
+                  className={`${answerOptionTwo && "answered"} button primary`}
+                  disabled
+                >
+                  {question.optionTwo.votes.length} / {total} ({" "}
+                  {(question.optionTwo.votes.length / total) * 100} %)
                 </button>
               ) : (
-                <VoteButton className={`button primary`} />
+                <VoteButton
+                  className={`button primary`}
+                  onClick={onVote("optionTwo")}
+                />
               )}
             </li>
           </ol>
