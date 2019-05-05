@@ -314,7 +314,7 @@ div.ask h1 {
   display: inline-block;
   border-radius: 3px;
   background: transparent;
-  border: 1px solid #333;
+  border: none;
   padding: 10px 15px 10px 15px;
   margin: 0 10px;
   color: #fff;
@@ -332,8 +332,8 @@ div.ask h1 {
 }
 
 .loader svg {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   margin: 20px;
   display: inline-block;
 }
@@ -356,11 +356,12 @@ div.ask h1 {
 
 .button.answered {
   color: #fff;
-  background: #009911 !important;
+  box-shadow: 0 0 2px 2px #00ffff;
+  background: #0099ff !important;
 }
 
 .button[disabled] {
-  background: #555;
+  background: #ddd;
   color: #fff;
 }
 

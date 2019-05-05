@@ -53,25 +53,25 @@ The user should be able to navigate to the leaderboard, to a specific question, 
 
 ## Application Functionality
 
-- [ ] The answered and unanswered polls are both available at the root.
-- [ ] The user can alternate between viewing answered and unanswered polls.
-- [ ] The unanswered questions are shown by default.
+- [x] The answered and unanswered polls are both available at the root.
+- [x] The user can alternate between viewing answered and unanswered polls.
+- [x] The unanswered questions are shown by default.
 - [x] The name of the logged in user is visible on the page.
 - [x] The user can navigate to the leaderboard.
 - [x] The user can navigate to the form that allows the user to create a new poll.
 
 ---
 
-- [ ] Each polling question resides in the correct category. For example, if a question hasn’t been answered by the current user, it should be in the “Unanswered” category.
-- [ ] A polling question links to details of that poll.
-- [ ] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
+- [x] Each polling question resides in the correct category. For example, if a question hasn’t been answered by the current user, it should be in the “Unanswered” category.
+- [x] A polling question links to details of that poll.
+- [x] The polls in both categories are arranged from the most recently created (top) to the least recently created (bottom).
 
 ---
 
 - [x] The details of the poll are available at questions/:question_id.
 - [x] The option selected by the logged in user should be clearly marked.
 - [x] The option selected by the logged in user should be clearly marked.When the user is logged in, the details of the poll are shown. If the user is logged out, he/she is asked to log in before before being able to access the poll.
-- [ ] The option selected by the logged in user should be clearly marked.The application asks the user to sign in and shows a 404 page if that poll does not exist. (In other words, if a user creates a poll and then the same or another user tries to access that poll by its url, the user should be asked to sign in and then be shown a 404 page. Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.)
+- [x] The option selected by the logged in user should be clearly marked.The application asks the user to sign in and shows a 404 page if that poll does not exist. (In other words, if a user creates a poll and then the same or another user tries to access that poll by its url, the user should be asked to sign in and then be shown a 404 page. Please keep in mind that new polls will not be accessible at their url because of the way the backend is set up in this application.)
 
 When a poll is clicked on the home page, the following is shown:
 
@@ -87,17 +87,17 @@ For answered polls, each of the two options contains the following:
 
 ---
 
-- [ ] Upon voting in a poll, all of the information of the answered poll is displayed.
-- [ ] The user’s response is recorded and is clearly visible on the poll details page.
-- [ ] When the user comes back to the home page, the polling question appears in the “Answered” column.
-- [ ] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
+- [x] Upon voting in a poll, all of the information of the answered poll is displayed.
+- [x] The user’s response is recorded and is clearly visible on the poll details page.
+- [x] When the user comes back to the home page, the polling question appears in the “Answered” column.
+- [x] The voting mechanism works correctly, and the data on the leaderboard changes appropriately.
 
 ---
 
-- [ ] The form is available at/add.
-- [ ] The application shows the text “Would You Rather” and has a form for creating two options.
-- [ ] Upon submitting the form, a new poll is created and the user is taken to the home page.
-- [ ] The new polling question appears in the correct category on the home page.
+- [x] The form is available at/add.
+- [x] The application shows the text “Would You Rather” and has a form for creating two options.
+- [x] Upon submitting the form, a new poll is created and the user is taken to the home page.
+- [x] The new polling question appears in the correct category on the home page.
 
 ---
 
@@ -114,27 +114,27 @@ Each entry on the leaderboard contains the following:
 ---
 
 - [x] The app contains a navigation bar that is visible on all of the pages.
-- [ ] The user can navigate between the page for creating new polls, and the leaderboard page, and the home page without typing the address into the address bar.
+- [x] The user can navigate between the page for creating new polls, and the leaderboard page, and the home page without typing the address into the address bar.
 
 ---
 
 - [x] The data that’s initially displayed is populated correctly from the backend.
-- [ ] Each user’s answer and each new poll is correctly recorded on the backend.
+- [x] Each user’s answer and each new poll is correctly recorded on the backend.
 
 ---
 
-- [ ] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
+- [x] The code runs without errors. There are no warnings that resulted from not following the best practices listed in the documentation, such as using key for list items. All code is functional and formatted properly.
 
 ## Architectur
 
-- [ ] The store is the application’s source of truth.
+- [x] The store is the application’s source of truth.
 - [x] Components read the necessary state from the store; they do not have their own versions of the same state.
 - [x] There are no direct API calls in the components' lifecycle methods.
 
 ---
 
 - [x] Most application state is managed by the Redux store. State-based props are mapped from the store rather than stored as component state.
-- [ ] Form inputs and controlled components may have some state handled by the component.
+- [x] Form inputs and controlled components may have some state handled by the component.
 
 ---
 
@@ -143,5 +143,5 @@ Each entry on the leaderboard contains the following:
 
 ---
 
-- [ ] The code is structured and organized in a logical way.
-- [ ] Components are modular and reusable.
+- [x] The code is structured and organized in a logical way.
+- [x] Components are modular and reusable.

@@ -3,6 +3,7 @@ import { Question } from "../Layout/Question";
 import { NotFound } from "./NotFound";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import * as actions from "../../actions";
 
 export const QuestionsContainer = ({
@@ -14,6 +15,26 @@ export const QuestionsContainer = ({
 }) => {
   const { match: { params } = { params: {} } } = props;
   const { [params.id]: question } = questions;
+
+  const unanswered = Object.values(questions).filter(
+    question => !Object.keys(users[user].answers).includes(question.id)
+  );
+  const random = unanswered[Math.floor(Math.random() * unanswered.length)];
+
+  if (!params.id) {
+    return (
+      <article className="page question center lucky">
+        {random ? (
+          <Link to={`/questions/${random.id}`}>Random Question</Link>
+        ) : (
+          <div>
+            You are the Answering King. Now create your own question:{" "}
+            <Link to={`/add`}>Create Question</Link>
+          </div>
+        )}
+      </article>
+    );
+  }
 
   if (!question) {
     return <NotFound />;

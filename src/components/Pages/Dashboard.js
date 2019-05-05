@@ -2,7 +2,7 @@ import React from "react";
 
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import * as actions from "../../actions";
 
 const DashboardContainer = props => {
@@ -25,7 +25,8 @@ const DashboardContainer = props => {
       return {
         ...question
       };
-    });
+    })
+    .sort((questionA, questionB) => questionB.timestamp - questionA.timestamp);
 
   return (
     <article className="page dashboard">
@@ -40,15 +41,30 @@ const DashboardContainer = props => {
       <table className="ranking">
         <thead>
           <tr>
-            <td>X</td>
+            <td>Asked On</td>
+            <td>Created By</td>
+            <td>Link</td>
           </tr>
         </thead>
         <tbody>
-          {preparedQuestions.map((question, i) => (
-            <tr key={`dashboard_${question.id}`}>
-              <td>{JSON.stringify(question)}</td>
-            </tr>
-          ))}
+          {preparedQuestions.map((question, i) => {
+            const d = new Date(question.timestamp);
+            return (
+              <tr key={`dashboard_${question.id}`}>
+                <td>
+                  {d.getDate() +
+                    "/" +
+                    (d.getMonth() + 1) +
+                    "/" +
+                    d.getFullYear()}
+                </td>
+                <td>{question.author}</td>
+                <td>
+                  <Link to={`/questions/${question.id}`}>{question.id}</Link>
+                </td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </article>

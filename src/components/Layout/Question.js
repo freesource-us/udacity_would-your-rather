@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Icon } from "../UI/Icon";
 
 const VoteButton = props => (
@@ -16,26 +16,13 @@ export const Question = ({
   children,
   icon
 }) => {
-  const [answerOptionOne, setAnswerOptionOne] = useState(
-    answer && answer.answer === "optionOne"
-  );
-  const [answerOptionTwo, setAnswerOptionTwo] = useState(
-    answer && answer.answer === "optionTwo"
-  );
-
+  const answerOptionOne = answer && answer.answer === "optionOne";
+  const answerOptionTwo = answer && answer.answer === "optionTwo";
   const didAnswer = answerOptionOne || answerOptionTwo;
 
   const total = question
     ? question.optionOne.votes.length + question.optionTwo.votes.length
     : 0;
-
-  console.log(
-    "Question changed:",
-    answerOptionOne,
-    answerOptionTwo,
-    question,
-    answer
-  );
 
   return (
     <>
@@ -53,7 +40,7 @@ export const Question = ({
                   disabled
                 >
                   {question.optionOne.votes.length} / {total} ({" "}
-                  {(question.optionOne.votes.length / total) * 100} %)
+                  {parseInt((question.optionOne.votes.length / total) * 100)} %)
                 </button>
               ) : (
                 <VoteButton
@@ -71,7 +58,7 @@ export const Question = ({
                   disabled
                 >
                   {question.optionTwo.votes.length} / {total} ({" "}
-                  {(question.optionTwo.votes.length / total) * 100} %)
+                  {parseInt((question.optionTwo.votes.length / total) * 100)} %)
                 </button>
               ) : (
                 <VoteButton
