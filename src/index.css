@@ -220,6 +220,7 @@ header nav.user {
   width: 32%;
   justify-content: flex-end;
   padding-right: 1em;
+  font-family: "Slabo 27px", serif;
 }
 
 header nav.user a {
@@ -393,6 +394,14 @@ tbody {
 tr {
   display: flex;
   width: 100%;
+  min-height: 50px;
+}
+
+tbody:empty:before {
+  content: "No Items";
+  text-align: center;
+  color: #ddd;
+  padding-top: 80px;
 }
 
 td {
@@ -420,4 +429,22 @@ textarea {
   text-align: center;
   font-size: 16px;
   font-family: "Slabo 27px", serif !important;
+}
+
+.king {
+  text-decoration: none;
+  font-size: 16px;
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.king p {
+  margin-bottom: 30px;
+}
+
+.lucky a {
+  text-decoration: none;
+  font-family: "Slabo 27px", serif !important;
+  font-size: 20px;
+  color: #0099ff;
 }

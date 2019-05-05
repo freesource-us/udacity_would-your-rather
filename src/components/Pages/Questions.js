@@ -27,8 +27,8 @@ export const QuestionsContainer = ({
         {random ? (
           <Link to={`/questions/${random.id}`}>Random Question</Link>
         ) : (
-          <div>
-            You are the Answering King. Now create your own question:{" "}
+          <div className="king">
+            <p>You are the Answering King. Now create your own question: </p>
             <Link to={`/add`}>Create Question</Link>
           </div>
         )}
