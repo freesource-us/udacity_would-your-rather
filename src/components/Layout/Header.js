@@ -39,9 +39,9 @@ const HeaderContainer = ({ user, users }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user,
-  users: state.users
+const mapStateToProps = ({ user, users }) => ({
+  user,
+  users
 });
 
 const mapDispatchProps = dispatch => ({

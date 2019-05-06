@@ -11,6 +11,8 @@ export const AddContainer = ({ user, users, actions, history }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const avatar = users[user] ? users[user].avatarURL : "";
 
+  const hasText = optionOneText !== undefined && optionTwoText !== undefined;
+
   const handleOptionOne = e => {
     setOptionOneText(e.target.value);
   };
@@ -42,7 +44,7 @@ export const AddContainer = ({ user, users, actions, history }) => {
             <button
               className="button primary"
               onClick={handleSubmit}
-              disabled={isSubmitting}
+              disabled={isSubmitting || !hasText}
             >
               Submit
             </button>
@@ -60,10 +62,10 @@ export const AddContainer = ({ user, users, actions, history }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ user, users }) => {
   return {
-    user: state.user,
-    users: state.users
+    user,
+    users
   };
 };
 

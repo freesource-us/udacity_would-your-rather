@@ -1,28 +1,23 @@
-import {
-  RECEIVE_QUESTION,
-  RECEIVE_QUESTIONS,
-  RECEIVE_SAVE_QUESTION,
-  RECEIVE_SAVE_QUESTION_ANSWER
-} from "../actions/questions";
+import { ACTIONS } from "../actions";
 
 export const questions = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_QUESTION:
+    case ACTIONS.RECEIVE_QUESTION:
       return {
         ...state,
         [action.question.id]: action.question
       };
-    case RECEIVE_QUESTIONS:
+    case ACTIONS.RECEIVE_QUESTIONS:
       return {
         ...state,
         ...action.questions
       };
-    case RECEIVE_SAVE_QUESTION:
+    case ACTIONS.RECEIVE_SAVE_QUESTION:
       return {
         ...state,
         [action.question.id]: action.question
       };
-    case RECEIVE_SAVE_QUESTION_ANSWER: {
+    case ACTIONS.RECEIVE_SAVE_QUESTION_ANSWER: {
       const { qid, answer, authedUser } = action.answer;
 
       return {

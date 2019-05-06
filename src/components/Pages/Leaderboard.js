@@ -53,11 +53,11 @@ export const LeaderboardContainer = ({ users }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ user, users, questions }) => {
   return {
-    user: state.user,
-    users: state.users,
-    questions: state.questions
+    user,
+    users,
+    questions
   };
 };
 

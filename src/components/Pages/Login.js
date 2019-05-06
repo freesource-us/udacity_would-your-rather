@@ -37,10 +37,10 @@ const LoginContainer = ({ actions, user, users }) => {
   );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ user, users }) => {
   return {
-    user: state.user,
-    users: state.users
+    user,
+    users
   };
 };
 

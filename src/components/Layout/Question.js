@@ -26,10 +26,10 @@ export const Question = ({
 
   return (
     <>
-      <Icon icon={author ? author.avatarURL : icon} />
-      <hr />
       <div className="ask">
         <h1>Would You Rather...</h1>
+        <hr />
+        <Icon icon={author ? author.avatarURL : icon} />
         {children || (
           <ol className="choices">
             <li>

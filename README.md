@@ -27,3 +27,11 @@ See above. If you want a single build and bundle everything into a shippable web
 ```sh
 npm build
 ```
+
+## Contribution guidelines
+
+[Guidelines](CONTRIBUTING.md)
+
+## License
+
+MIT

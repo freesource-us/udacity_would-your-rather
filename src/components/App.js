@@ -14,7 +14,7 @@ const AppContainer = ({ user, loading, actions }) => {
   };
 
   useEffect(() => {
-    user ? initApp() : actions.me();
+    user && initApp(); // : actions.me();
   }, [user]);
 
   return (
@@ -27,9 +27,9 @@ const AppContainer = ({ user, loading, actions }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user,
-  loading: state.loading
+const mapStateToProps = ({ user, loading }) => ({
+  user,
+  loading
 });
 
 const mapDispatchProps = dispatch => ({

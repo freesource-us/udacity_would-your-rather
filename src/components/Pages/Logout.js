@@ -21,9 +21,7 @@ const LogoutContainer = ({ user, actions }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  user: state.user
-});
+const mapStateToProps = ({ user }) => ({ user });
 
 const mapDispatchProps = dispatch => ({
   actions: bindActionCreators(actions, dispatch)

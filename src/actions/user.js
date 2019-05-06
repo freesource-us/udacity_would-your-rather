@@ -1,9 +1,9 @@
-export const REQUEST_LOGIN = "REQUEST_LOGIN";
-export const REQUEST_LOGOUT = "REQUEST_LOGOUT";
-export const REQUEST_ME = "REQUEST_ME";
-export const RECEIVE_LOGIN = "RECEIVE_LOGIN";
-export const RECEIVE_LOGOUT = "RECEIVE_LOGOUT";
-export const RECEIVE_ME = "RECEIVE_ME";
+import { ACTIONS } from ".";
+/*
+
+I believe this is the correct way of handling sessions.
+However too meet the requirements I leave this up as comment
+for future reference.
 
 export const me = () => dispatch => {
   dispatch({
@@ -15,24 +15,25 @@ export const me = () => dispatch => {
     user
   });
 };
+*/
 
 export const login = user => dispatch => {
   dispatch({
-    type: REQUEST_LOGIN
+    type: ACTIONS.REQUEST_LOGIN
   });
   sessionStorage.setItem("user", user);
   dispatch({
-    type: RECEIVE_LOGIN,
+    type: ACTIONS.RECEIVE_LOGIN,
     user
   });
 };
 
 export const logout = () => dispatch => {
   dispatch({
-    type: REQUEST_LOGOUT
+    type: ACTIONS.REQUEST_LOGOUT
   });
   sessionStorage.removeItem("user");
   dispatch({
-    type: RECEIVE_LOGOUT
+    type: ACTIONS.RECEIVE_LOGOUT
   });
 };
